@@ -24,17 +24,46 @@
       "id": "source-review",
       "source_repo": "architectonic/skills",
       "source_path": "skills/source-review.md",
-      "source_ref": "051df1294ec1264d8f34237a9a630ebd755e33ba",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
       "vendored_path": "skills/source-review.md",
-      "local_modifications": false
+      "local_modifications": false,
+      "selection_reason": "Force source-first repo/project reads before acting."
     },
     {
       "id": "intent-to-contract",
       "source_repo": "architectonic/skills",
       "source_path": "skills/intent-to-contract.md",
-      "source_ref": "051df1294ec1264d8f34237a9a630ebd755e33ba",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
       "vendored_path": "skills/intent-to-contract.md",
-      "local_modifications": false
+      "local_modifications": false,
+      "selection_reason": "Translate informal missions into bounded ticket contracts."
+    },
+    {
+      "id": "assumption-grilling",
+      "source_repo": "architectonic/skills",
+      "source_path": "skills/assumption-grilling.md",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
+      "vendored_path": "skills/assumption-grilling.md",
+      "local_modifications": false,
+      "selection_reason": "Detect hidden assumptions before committing ledger or repo changes."
+    },
+    {
+      "id": "validation-gated-skill-improvement",
+      "source_repo": "architectonic/skills",
+      "source_path": "skills/validation-gated-skill-improvement.md",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
+      "vendored_path": "skills/validation-gated-skill-improvement.md",
+      "local_modifications": false,
+      "selection_reason": "Keep recurring operator/self-improvement edits bounded, validated, and rollback-aware."
+    },
+    {
+      "id": "shared-skill-library-governance",
+      "source_repo": "architectonic/skills",
+      "source_path": "skills/shared-skill-library-governance.md",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
+      "vendored_path": "skills/shared-skill-library-governance.md",
+      "local_modifications": false,
+      "selection_reason": "Govern named skill collections, runtime exposure, provenance, and drift for operator-maintained packages."
     }
   ],
   "models": {
