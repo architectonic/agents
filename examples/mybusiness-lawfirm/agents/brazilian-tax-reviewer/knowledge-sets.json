@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1",
+  "attachments": [
+    {
+      "id": "br-tax-code",
+      "path": "../../../knowledge/jurisdictions/br/tax-code",
+      "mode": "read",
+      "privacy": "firm_internal",
+      "freshness": "living",
+      "review_required": true
+    },
+    {
+      "id": "client-matter",
+      "path": "../../../clients/<client>/matters/<matter>",
+      "mode": "read",
+      "privacy": "client_confidential",
+      "freshness": "matter_owner_policy",
+      "review_required": true
+    }
+  ]
+}
