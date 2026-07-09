@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1",
+  "attachments": [
+    {
+      "id": "local-org-knowledge",
+      "path": "../../knowledge",
+      "mode": "read",
+      "privacy": "organization_internal",
+      "freshness": "local_policy",
+      "review_required": true
+    }
+  ]
+}

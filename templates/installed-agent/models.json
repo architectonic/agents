@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.1",
+  "source_repo": "architectonic/models",
+  "policy": "Prefer validated model-routing matrix; never use free/opportunistic tiers for secrets, customer data, deployment, payment, or final authority.",
+  "routes": {
+    "primary": [],
+    "fallback": [],
+    "cheap": [],
+    "high_reasoning": [],
+    "avoid": []
+  }
+}

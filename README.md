@@ -1,106 +1,62 @@
 ---
 type: Entry Point
 title: agents
-description: Runtime-neutral Architectonic package for composing specialized agent bundles from identity, doctrine, skills, models, knowledge, prompts, and upkeep policy.
-tags: [agents, identity, skills, models, knowledge, doctrine, meta, okf]
+description: Runtime-neutral Architectonic package for composing thick installed agent bundles from identity, doctrine, pinned skills, models, knowledge attachments, prompts, evals, and upkeep policy.
+tags: [agents, identity, doctrine, skills, models, knowledge, meta, okf]
 okf_version: "0.1"
 status: draft
 ---
 
 # agents
 
-`agents` is the Architectonic package for reusable agent bundles.
+`agents` is the Architectonic package for reusable agent factories and thick installed agent bundles.
 
-An agent is not just a prompt. An agent is a composable operating identity that can be instantiated inside an organization, project, workspace, or public product surface.
+An agent is not just a prompt. A useful installed agent carries initialized identity, agent-local doctrine, pinned or vendored skills, model policy, knowledge attachments, prompt surfaces, verification gates, and upkeep policy.
 
-Install target, when wired into the CLI:
-
-```bash
-npx architectonic add agents
-```
-
-## Core definition
+## Core distinction
 
 ```text
-Agent =
-  identity
-+ role and authority contract
-+ agent-local doctrine
-+ inherited organization doctrine
-+ skill bundle
-+ model routing policy
-+ knowledge-set attachments
-+ prompt surfaces
-+ tools and permission policy
-+ verification gates
-+ upkeep policy
+archetype        reusable public factory pattern
+installed agent  initialized local worker inside an org/project/workspace
+runtime agent    executing session with tools, logs, memory, and permissions
 ```
 
-## Important distinction
+`architectonic/agents` contains public-safe archetypes, schemas, templates, examples, and install contracts. A concrete organization may instantiate private local agents with organization doctrine, client/project scope, private knowledge bases, and jurisdiction/domain corpora.
 
-This package contains reusable archetypes, schemas, templates, examples, and public-safe starter specializations.
-
-A concrete organization may instantiate its own agents with private doctrine, private knowledge bases, client/project scopes, and jurisdiction/domain-specific corpora.
-
-Example:
+## Installed agent minimum
 
 ```text
-MyBusiness/
-  constitution/
-  doctrine/                 # organization doctrine
-  skills/                   # organization skill overrides/additions
-  knowledge/                # organization knowledge corpus
-  agents/
-    tax-reviewer-br/         # local specialized agent instance
-      agent.md
-      identity.md
-      doctrine.md            # agent-local doctrine
-      skills.json
-      models.json
-      prompts/
-      knowledge-sets.json    # attaches to org/client/legal corpora
+agent.md
+identity.md
+doctrine.md
+skills.json
+models.json
+knowledge-sets.json
+prompts/system.md
+prompts/task.md
+evals.md
+upkeep.md
 ```
 
-The public archetype stays reusable. The local instance carries the specific professional posture, org constraints, client/project scope, and knowledge attachments.
-
-## Relationship to Architectonic layers
+## Layering rule
 
 ```text
-constitution      = root scaffold / bundle contract
-doctrine          = upstream and organization governing principles
-identity          = actor, role, authority, privacy, delegation
-skills            = reusable procedures
-models            = model routing and trust tiers
-knowledge         = reviewed claims, sources, evidence, uncertainty
-living-knowledge  = optional governed upkeep for dynamic corpora
-meta              = drift detection, audits, recursive improvement
-agents            = composition layer for reusable and local agent identities
+Architectonic doctrine
+  < organization doctrine
+    < project/client doctrine
+      < agent-local doctrine
+        < task instructions
 ```
 
-## What belongs here
+Lower layers may narrow or specialize higher layers. They must not contradict, bypass, or weaken them.
 
-```text
-public-safe agent archetypes
-agent schemas and templates
-composition rules
-model/skill/knowledge attachment contracts
-safety and high-stakes boundaries
-dist catalogs and install manifests
-example bundles without private data
-operator state for maintaining the package
-```
+## Skill rule
 
-## What does not belong here
+Installed agents may vendor/copy skills from `architectonic/skills`, but every copied skill must preserve provenance: source repo, path, ref/SHA, copied path, and local modification status.
 
-```text
-private client files
-private user profiles
-confidential organization doctrine
-full copies of legal, medical, financial, or proprietary corpora
-runtime secrets
-unreviewed autonomous action policies
-claims that a high-stakes agent is a licensed professional
-```
+## Knowledge rule
+
+Agents attach to knowledge bases. They do not own every corpus they use. For example, a law firm can attach an agent to `knowledge/jurisdictions/br/tax-code`, `clients/<client>`, and `projects/<matter>` with scope, privacy, freshness, and review rules.
 
 ## First value path
 
@@ -108,12 +64,11 @@ claims that a high-stakes agent is a licensed professional
 agents-bootstrap-package-001
 -> agents-schema-and-contract-001
 -> agents-core-archetypes-seed-001
--> agents-local-specialization-contract-001
+-> agents-installed-template-001
 -> agents-knowledge-set-attachment-policy-001
--> agents-model-policy-wiring-001
 -> agents-dist-catalog-001
 ```
 
 ## Status
 
-Draft bootstrap. The package currently defines the contract and seed archetypes; it does not yet publish an npm package or integrate with `architectonic add agents`.
+Draft bootstrap. Not yet wired into `npx architectonic add agents`.

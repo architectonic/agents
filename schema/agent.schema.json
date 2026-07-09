@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architectonic.dev/schemas/agent.schema.json",
+  "title": "Architectonic Agent Bundle",
+  "type": "object",
+  "required": ["schema_version", "id", "title", "type", "autonomy_level", "identity", "doctrine", "skill_bundle", "models", "knowledge_sets", "prompts", "upkeep"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "title": {"type": "string"},
+    "type": {"enum": ["archetype", "installed_agent", "runtime_agent"]},
+    "risk_level": {"enum": ["low", "medium", "high", "critical"]},
+    "autonomy_level": {"type": "integer", "minimum": 0, "maximum": 5},
+    "identity": {"type": "object"},
+    "doctrine": {"type": "object"},
+    "skill_bundle": {"type": "array"},
+    "models": {"type": "object"},
+    "knowledge_sets": {"type": "array"},
+    "prompts": {"type": "object"},
+    "upkeep": {"type": "object"}
+  }
+}
