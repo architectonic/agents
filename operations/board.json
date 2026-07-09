@@ -1,0 +1,44 @@
+{
+  "schema_version": "0.1",
+  "purpose": "Board for bootstrapping and maintaining architectonic/agents.",
+  "selection_rule": "highest_priority_ready_ticket_allowed_by_gates",
+  "tickets": [
+    {
+      "id": "agents-bootstrap-package-001",
+      "title": "Bootstrap agents package contract and seed starter kit",
+      "status": "done",
+      "priority": 1,
+      "role": "Package Builder",
+      "acceptance": [
+        "README defines thick installed agent contract",
+        "schemas/templates/archetypes/examples exist",
+        "dist catalog exists",
+        "validation script exists"
+      ]
+    },
+    {
+      "id": "agents-cli-install-contract-001",
+      "title": "Define CLI expansion contract for npx architectonic add agents",
+      "status": "ready",
+      "priority": 2,
+      "role": "Installer Designer",
+      "acceptance": [
+        "document install expansion",
+        "define vendored skill update behavior",
+        "define architectonic.json manifest entries"
+      ]
+    },
+    {
+      "id": "agents-permissions-model-001",
+      "title": "Draft future permission layer interface",
+      "status": "ready",
+      "priority": 3,
+      "role": "Governance Designer",
+      "acceptance": [
+        "identify whether permissions belong in doctrine, constitution, identity, agents, or a new package",
+        "define minimal permission vocabulary",
+        "avoid implementing runtime auth"
+      ]
+    }
+  ]
+}
