@@ -1,0 +1,18 @@
+{
+  "schema_version": "0.1",
+  "events": [
+    {
+      "date": "2026-07-09",
+      "ticket_id": "agents-bootstrap-package-001",
+      "type": "bootstrap",
+      "summary": "Seeded agents package as factory starter kit for thick installed agents.",
+      "evidence": [
+        "schema/agent.schema.json",
+        "templates/installed-agent",
+        "archetypes/*/agent.bundle.json",
+        "examples/mybusiness-lawfirm/agents/brazilian-tax-reviewer",
+        "dist/catalog.json"
+      ]
+    }
+  ]
+}
