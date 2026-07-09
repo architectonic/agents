@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1",
+  "mode": "vendored_or_pinned",
+  "skills": [
+    {
+      "id": "source-review",
+      "source_repo": "architectonic/skills",
+      "source_path": "skills/source-review.md",
+      "source_ref": "051df1294ec1264d8f34237a9a630ebd755e33ba",
+      "vendored_path": "skills/source-review.md",
+      "local_modifications": false,
+      "review_required_before_update": true
+    },
+    {
+      "id": "assumption-grilling",
+      "source_repo": "architectonic/skills",
+      "source_path": "skills/assumption-grilling.md",
+      "source_ref": "051df1294ec1264d8f34237a9a630ebd755e33ba",
+      "vendored_path": "skills/assumption-grilling.md",
+      "local_modifications": false,
+      "review_required_before_update": true
+    }
+  ]
+}
