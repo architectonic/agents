@@ -1,0 +1,6 @@
+{
+  "date": "2026-07-09",
+  "ready": ["agents-cli-install-contract-001", "agents-permissions-model-001"],
+  "blocked": [],
+  "done": ["agents-bootstrap-package-001"]
+}
