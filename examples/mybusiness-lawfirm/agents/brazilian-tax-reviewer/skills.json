@@ -6,19 +6,41 @@
       "id": "source-review",
       "source_repo": "architectonic/skills",
       "source_path": "skills/source-review.md",
-      "source_ref": "051df1294ec1264d8f34237a9a630ebd755e33ba",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
       "vendored_path": "skills/source-review.md",
       "local_modifications": false,
-      "review_required_before_update": true
+      "review_required_before_update": true,
+      "selection_reason": "Ground Brazilian tax review in source artifacts before interpretation."
     },
     {
       "id": "assumption-grilling",
       "source_repo": "architectonic/skills",
       "source_path": "skills/assumption-grilling.md",
-      "source_ref": "051df1294ec1264d8f34237a9a630ebd755e33ba",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
       "vendored_path": "skills/assumption-grilling.md",
       "local_modifications": false,
-      "review_required_before_update": true
+      "review_required_before_update": true,
+      "selection_reason": "Expose hidden assumptions, alternatives, and falsification criteria in tax interpretations."
+    },
+    {
+      "id": "intent-to-contract",
+      "source_repo": "architectonic/skills",
+      "source_path": "skills/intent-to-contract.md",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
+      "vendored_path": "skills/intent-to-contract.md",
+      "local_modifications": false,
+      "review_required_before_update": true,
+      "selection_reason": "Map vague client or lawyer requests into bounded internal review artifacts."
+    },
+    {
+      "id": "mcp-external-tool-security-review",
+      "source_repo": "architectonic/skills",
+      "source_path": "skills/mcp-external-tool-security-review.md",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
+      "vendored_path": "skills/mcp-external-tool-security-review.md",
+      "local_modifications": false,
+      "review_required_before_update": true,
+      "selection_reason": "Protect client-confidential legal/tax workflows from unsafe external-tool and cross-tool data flows."
     }
   ]
 }
