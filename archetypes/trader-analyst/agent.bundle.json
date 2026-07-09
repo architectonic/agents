@@ -25,17 +25,37 @@
       "id": "source-review",
       "source_repo": "architectonic/skills",
       "source_path": "skills/source-review.md",
-      "source_ref": "051df1294ec1264d8f34237a9a630ebd755e33ba",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
       "vendored_path": "skills/source-review.md",
-      "local_modifications": false
+      "local_modifications": false,
+      "selection_reason": "Verify market/news/data sources before forming hypotheses."
     },
     {
       "id": "assumption-grilling",
       "source_repo": "architectonic/skills",
       "source_path": "skills/assumption-grilling.md",
-      "source_ref": "051df1294ec1264d8f34237a9a630ebd755e33ba",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
       "vendored_path": "skills/assumption-grilling.md",
-      "local_modifications": false
+      "local_modifications": false,
+      "selection_reason": "Expose hidden market assumptions, causal stories, and falsification criteria."
+    },
+    {
+      "id": "intent-to-contract",
+      "source_repo": "architectonic/skills",
+      "source_path": "skills/intent-to-contract.md",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
+      "vendored_path": "skills/intent-to-contract.md",
+      "local_modifications": false,
+      "selection_reason": "Translate vague market requests into research notes, watchlists, hypotheses, or explicit non-action outputs."
+    },
+    {
+      "id": "mcp-external-tool-security-review",
+      "source_repo": "architectonic/skills",
+      "source_path": "skills/mcp-external-tool-security-review.md",
+      "source_ref": "9e4b87b90e83d04728e822ff82d56ccf53a195f4",
+      "vendored_path": "skills/mcp-external-tool-security-review.md",
+      "local_modifications": false,
+      "selection_reason": "Gate broker, data-provider, account, and external-tool access before any market workflow can mutate state."
     }
   ],
   "models": {
