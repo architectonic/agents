@@ -1,0 +1,25 @@
+{
+  "schema_version": "0.1",
+  "package": "architectonic/agents",
+  "default_install": [
+    "README.md",
+    "AGENTS.md",
+    "docs/AGENT_CONTRACT.md",
+    "docs/INSTALLATION_MODEL.md",
+    "doctrine/agents.md",
+    "schema/agent.schema.json",
+    "templates/installed-agent"
+  ],
+  "archetype_install_expands": [
+    "agent.bundle.json -> installed-agent files",
+    "skill_bundle -> pinned or vendored skills with provenance",
+    "knowledge_sets -> local attachment manifest",
+    "models -> local routing policy"
+  ],
+  "update_rules": [
+    "Do not overwrite local doctrine without review.",
+    "Do not overwrite locally modified skills without diffing provenance.",
+    "Do not attach private knowledge bases without explicit local configuration.",
+    "Do not increase autonomy without permission review."
+  ]
+}
