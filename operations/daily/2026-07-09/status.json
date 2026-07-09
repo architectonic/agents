@@ -1,0 +1,13 @@
+{
+  "date": "2026-07-09",
+  "repo": "architectonic/agents",
+  "state": "bootstrap_seeded",
+  "current_ticket": "agents-bootstrap-package-001",
+  "next_ticket": "agents-cli-install-contract-001",
+  "validation": ["python scripts/validate_agents_package.py"],
+  "known_limits": [
+    "no npm package yet",
+    "no architectonic CLI integration yet",
+    "skill pins use current skills repo ref but vendored skill bodies are not copied in public examples"
+  ]
+}
