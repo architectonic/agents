@@ -1,6 +1,6 @@
 {
   "date": "2026-07-09",
-  "ready": ["agents-cli-install-contract-001", "agents-permissions-model-001"],
+  "ready": ["agents-permissions-model-001", "agents-dist-skill-resolution-001"],
   "blocked": [],
-  "done": ["agents-bootstrap-package-001"]
+  "done": ["agents-bootstrap-package-001", "agents-cli-install-contract-001"]
 }

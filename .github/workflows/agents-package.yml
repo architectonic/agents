@@ -11,7 +11,9 @@ on:
       - "templates/**"
       - "examples/**"
       - "dist/**"
+      - "docs/**"
       - "scripts/validate_agents_package.py"
+      - "scripts/instantiate_agent.py"
       - ".github/workflows/agents-package.yml"
 
 permissions:

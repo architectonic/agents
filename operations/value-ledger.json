@@ -13,6 +13,20 @@
         "examples/mybusiness-lawfirm/agents/brazilian-tax-reviewer",
         "dist/catalog.json"
       ]
+    },
+    {
+      "date": "2026-07-09",
+      "ticket_id": "agents-cli-install-contract-001",
+      "type": "install-contract",
+      "summary": "Added install spec schema, Brazilian tax reviewer install spec, reference generator, and validation that expands install specs into thick installed-agent folders.",
+      "evidence": [
+        "docs/CLI_INSTALL_CONTRACT.md",
+        "schema/install-spec.schema.json",
+        "examples/install-specs/brazilian-tax-reviewer.json",
+        "scripts/instantiate_agent.py",
+        "scripts/validate_agents_package.py",
+        "dist/install-manifest.json"
+      ]
     }
   ]
 }

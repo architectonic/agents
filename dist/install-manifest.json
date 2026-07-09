@@ -1,20 +1,27 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "package": "architectonic/agents",
   "default_install": [
     "README.md",
     "AGENTS.md",
     "docs/AGENT_CONTRACT.md",
     "docs/INSTALLATION_MODEL.md",
+    "docs/CLI_INSTALL_CONTRACT.md",
     "doctrine/agents.md",
     "schema/agent.schema.json",
-    "templates/installed-agent"
+    "schema/install-spec.schema.json",
+    "templates/installed-agent",
+    "scripts/instantiate_agent.py"
   ],
   "archetype_install_expands": [
     "agent.bundle.json -> installed-agent files",
+    "install spec -> local identity/doctrine/knowledge/model overrides",
     "skill_bundle -> pinned or vendored skills with provenance",
     "knowledge_sets -> local attachment manifest",
     "models -> local routing policy"
+  ],
+  "example_specs": [
+    "examples/install-specs/brazilian-tax-reviewer.json"
   ],
   "update_rules": [
     "Do not overwrite local doctrine without review.",

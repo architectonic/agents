@@ -1,13 +1,17 @@
 {
   "date": "2026-07-09",
   "repo": "architectonic/agents",
-  "state": "bootstrap_seeded",
-  "current_ticket": "agents-bootstrap-package-001",
-  "next_ticket": "agents-cli-install-contract-001",
-  "validation": ["python scripts/validate_agents_package.py"],
+  "state": "install_contract_seeded",
+  "current_ticket": "agents-cli-install-contract-001",
+  "next_ticket": "agents-permissions-model-001",
+  "validation": [
+    "python scripts/validate_agents_package.py",
+    "python scripts/instantiate_agent.py --spec examples/install-specs/brazilian-tax-reviewer.json --output /tmp/brazilian-tax-reviewer"
+  ],
   "known_limits": [
     "no npm package yet",
     "no architectonic CLI integration yet",
-    "skill pins use current skills repo ref but vendored skill bodies are not copied in public examples"
+    "skill bodies are still pinned/referenced, not copied by the reference generator",
+    "dist-only skill slug resolution is deferred"
   ]
 }

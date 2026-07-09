@@ -19,13 +19,15 @@
     {
       "id": "agents-cli-install-contract-001",
       "title": "Define CLI expansion contract for npx architectonic add agents",
-      "status": "ready",
+      "status": "done",
       "priority": 2,
       "role": "Installer Designer",
       "acceptance": [
         "document install expansion",
         "define vendored skill update behavior",
-        "define architectonic.json manifest entries"
+        "define architectonic.json manifest entries",
+        "add reference generator for thick installed-agent output",
+        "validate install specs by generating required files"
       ]
     },
     {
@@ -38,6 +40,18 @@
         "identify whether permissions belong in doctrine, constitution, identity, agents, or a new package",
         "define minimal permission vocabulary",
         "avoid implementing runtime auth"
+      ]
+    },
+    {
+      "id": "agents-dist-skill-resolution-001",
+      "title": "Resolve dist-only skills into generated vendored copies with provenance",
+      "status": "ready",
+      "priority": 4,
+      "role": "Installer Designer",
+      "acceptance": [
+        "define dist slug to canonical/generated copy resolution",
+        "preserve risk/review/license metadata",
+        "avoid treating dist as authoring source"
       ]
     }
   ]

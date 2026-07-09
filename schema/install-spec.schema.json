@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://architectonic.dev/schemas/agent-install-spec.schema.json",
+  "title": "Architectonic Agent Install Spec",
+  "type": "object",
+  "required": ["schema_version", "agent_id", "title", "archetype"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "agent_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "title": {"type": "string"},
+    "archetype": {"type": "string"},
+    "specializations": {"type": "array", "items": {"type": "string"}},
+    "purpose": {"type": "string"},
+    "role": {"type": "string"},
+    "authority": {"type": "string"},
+    "privacy": {"type": "string"},
+    "escalation": {"type": "string"},
+    "autonomy_level": {"type": "integer", "minimum": 0, "maximum": 5},
+    "local_rules": {"type": "array", "items": {"type": "string"}},
+    "forbidden": {"type": "array", "items": {"type": "string"}},
+    "stop_conditions": {"type": "array", "items": {"type": "string"}},
+    "knowledge_attachments": {"type": "array"},
+    "model_overrides": {"type": "object"}
+  }
+}
