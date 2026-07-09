@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1",
+  "generated_at": "2026-07-09",
+  "archetypes": [
+    {
+      "id": "coder",
+      "title": "Coder Agent",
+      "risk_level": "medium",
+      "autonomy_level": 2,
+      "path": "archetypes/coder/agent.bundle.json"
+    },
+    {
+      "id": "operator",
+      "title": "Operator Agent",
+      "risk_level": "medium",
+      "autonomy_level": 3,
+      "path": "archetypes/operator/agent.bundle.json"
+    },
+    {
+      "id": "legal-reviewer",
+      "title": "Legal Reviewer Agent",
+      "risk_level": "high",
+      "autonomy_level": 1,
+      "path": "archetypes/legal-reviewer/agent.bundle.json"
+    },
+    {
+      "id": "teacher",
+      "title": "Teacher Agent",
+      "risk_level": "low",
+      "autonomy_level": 1,
+      "path": "archetypes/teacher/agent.bundle.json"
+    },
+    {
+      "id": "trader-analyst",
+      "title": "Trader Analyst Agent",
+      "risk_level": "high",
+      "autonomy_level": 1,
+      "path": "archetypes/trader-analyst/agent.bundle.json"
+    }
+  ],
+  "specializations": [
+    {
+      "id": "brazilian-tax-law",
+      "path": "specializations/brazilian-tax-law/knowledge-set.md",
+      "risk_level": "high"
+    }
+  ],
+  "examples": [
+    {
+      "id": "mybusiness-lawfirm/brazilian-tax-reviewer",
+      "path": "examples/mybusiness-lawfirm/agents/brazilian-tax-reviewer",
+      "risk_level": "high"
+    }
+  ]
+}
