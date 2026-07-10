@@ -1,7 +1,7 @@
 ---
 type: Entry Point
 title: agents
-description: Runtime-neutral Architectonic package for composing thick installed agent bundles from identity, doctrine, pinned skills, models, knowledge attachments, prompts, evals, and upkeep policy.
+description: Runtime-neutral package for composing reusable agent definitions from identity, doctrine, skills, model policy, knowledge attachments, prompts, evaluations, and upkeep rules.
 tags: [agents, identity, doctrine, skills, models, knowledge, meta, okf]
 okf_version: "0.1"
 status: draft
@@ -9,21 +9,23 @@ status: draft
 
 # agents
 
-`agents` is the Architectonic package for reusable agent factories and thick installed agent bundles.
+`agents` defines reusable structures for configuring software agents within an Architectonic system.
 
-An agent is not just a prompt. A useful installed agent carries initialized identity, agent-local doctrine, pinned or vendored skills, model policy, knowledge attachments, prompt surfaces, verification gates, and upkeep policy.
+An agent is more than a prompt. A concrete agent configuration may include identity, scoped doctrine, selected skills, model policy, knowledge attachments, prompt surfaces, verification gates, permissions, and upkeep rules.
 
 ## Core distinction
 
 ```text
-archetype        reusable public factory pattern
-installed agent  initialized local worker inside an org/project/workspace
+archetype        reusable public pattern
+installed agent  initialized local configuration inside an organization, project, or workspace
 runtime agent    executing session with tools, logs, memory, and permissions
 ```
 
-`architectonic/agents` contains public-safe archetypes, schemas, templates, examples, and install contracts. A concrete organization may instantiate private local agents with organization doctrine, client/project scope, private knowledge bases, and jurisdiction/domain corpora.
+`architectonic/agents` contains public-safe archetypes, schemas, templates, examples, and installation contracts. A concrete organization may instantiate private agents with organization rules, project scope, private knowledge bases, and domain-specific material.
 
 ## Installed agent minimum
+
+A minimal instance may contain:
 
 ```text
 agent.md
@@ -38,37 +40,49 @@ evals.md
 upkeep.md
 ```
 
+Not every file is mandatory in every implementation. Separate files should exist only when they preserve a meaningful boundary or are maintained independently.
+
 ## Layering rule
 
 ```text
-Architectonic doctrine
-  < organization doctrine
-    < project/client doctrine
-      < agent-local doctrine
-        < task instructions
+general doctrine
+  -> organization rules
+    -> project or client rules
+      -> agent-specific constraints
+        -> task instructions
 ```
 
-Lower layers may narrow or specialize higher layers. They must not contradict, bypass, or weaken them.
+More specific layers may narrow or specialize broader layers within their delegated authority. Conflicts should be surfaced rather than silently resolved in favor of the most local instruction.
 
 ## Skill rule
 
-Installed agents may vendor/copy skills from `architectonic/skills`, but every copied skill must preserve provenance: source repo, path, ref/SHA, copied path, and local modification status.
+Installed agents may copy or vendor skills from `architectonic/skills`. Copied material should preserve recoverable provenance: source repository, path, ref or commit SHA, destination path, and local modification status.
 
 ## Knowledge rule
 
-Agents attach to knowledge bases. They do not own every corpus they use. For example, a law firm can attach an agent to `knowledge/jurisdictions/br/tax-code`, `clients/<client>`, and `projects/<matter>` with scope, privacy, freshness, and review rules.
+Agents attach to knowledge sources; they do not become the canonical owner of every corpus they can access. Each attachment should define scope, privacy, freshness, authority, and review expectations.
 
-## First value path
+## Model rule
+
+Model selection is an implementation policy, not an identity trait. Agent definitions should describe capability requirements, cost or latency constraints, fallback behavior, and verification needs without claiming that one model is universally best.
+
+## Relationship to the stack
 
 ```text
-agents-bootstrap-package-001
--> agents-schema-and-contract-001
--> agents-core-archetypes-seed-001
--> agents-installed-template-001
--> agents-knowledge-set-attachment-policy-001
--> agents-dist-catalog-001
+doctrine   = principles and boundaries
+identity   = actor, role, authority, privacy, and delegation
+project    = operating context
+skills     = reusable procedures
+models     = evidence-backed model selection policy
+knowledge  = attached claims, sources, and evidence
+meta       = maintenance and revision policy
+agents     = composition of these concerns for a concrete software actor
 ```
+
+## Boundary
+
+This public repository should not contain personal profiles, client data, private prompts, credentials, runtime logs, or project-specific operational state.
 
 ## Status
 
-Draft bootstrap. Not yet wired into `npx architectonic add agents`.
+Draft. Not yet wired into `npx architectonic add agents`.
