@@ -1,9 +1,9 @@
 ---
 type: Entry Point
 title: agents
-description: Runtime-neutral package for composing reusable agent definitions from identity, doctrine, skills, model policy, knowledge attachments, prompts, evaluations, and upkeep rules.
+description: Runtime-neutral package for composing software agents from identity, doctrine, skills, model policy, knowledge attachments, prompts, evaluations, permissions, and upkeep rules.
 tags: [agents, identity, doctrine, skills, models, knowledge, meta, okf]
-okf_version: "0.1"
+okf_version: "0.2"
 status: draft
 ---
 
@@ -11,7 +11,13 @@ status: draft
 
 `agents` defines reusable structures for configuring software agents within an Architectonic system.
 
-An agent is more than a prompt. A concrete agent configuration may include identity, scoped doctrine, selected skills, model policy, knowledge attachments, prompt surfaces, verification gates, permissions, and upkeep rules.
+Install it with:
+
+```bash
+npx architectonic add agents
+```
+
+An agent is a composed software actor. A concrete configuration may include identity, scoped doctrine, selected skills, model policy, knowledge attachments, prompt surfaces, verification gates, permissions, and upkeep rules.
 
 ## Core distinction
 
@@ -21,9 +27,9 @@ installed agent  initialized local configuration inside an organization, project
 runtime agent    executing session with tools, logs, memory, and permissions
 ```
 
-`architectonic/agents` contains public-safe archetypes, schemas, templates, examples, and installation contracts. A concrete organization may instantiate private agents with organization rules, project scope, private knowledge bases, and domain-specific material.
+This repository contains public-safe archetypes, schemas, templates, examples, and installation contracts. Private agents are instantiated in organization, project, or user workspaces.
 
-## Installed agent minimum
+## Minimal composition
 
 A minimal instance may contain:
 
@@ -40,9 +46,9 @@ evals.md
 upkeep.md
 ```
 
-Not every file is mandatory in every implementation. Separate files should exist only when they preserve a meaningful boundary or are maintained independently.
+Separate files should exist only when they preserve a meaningful boundary or are maintained independently.
 
-## Layering rule
+## Layering
 
 ```text
 general doctrine
@@ -52,31 +58,33 @@ general doctrine
         -> task instructions
 ```
 
-More specific layers may narrow or specialize broader layers within their delegated authority. Conflicts should be surfaced rather than silently resolved in favor of the most local instruction.
+More specific layers may narrow broader layers within delegated authority. Conflicts should be surfaced rather than silently resolved in favor of the most local instruction.
 
-## Skill rule
+## Skills
 
-Installed agents may copy or vendor skills from `architectonic/skills`. Copied material should preserve recoverable provenance: source repository, path, ref or commit SHA, destination path, and local modification status.
+Installed agents may copy or vendor skills from `architectonic/skills`. Copied material should preserve source repository, path, ref or commit SHA, destination path, and local modification status.
 
-## Knowledge rule
+## Knowledge
 
 Agents attach to knowledge sources; they do not become the canonical owner of every corpus they can access. Each attachment should define scope, privacy, freshness, authority, and review expectations.
 
-## Model rule
+## Models
 
-Model selection is an implementation policy, not an identity trait. Agent definitions should describe capability requirements, cost or latency constraints, fallback behavior, and verification needs without claiming that one model is universally best.
+Model selection is an implementation policy rather than an identity trait. Agent definitions should describe capability requirements, cost and latency constraints, fallback behavior, and verification needs without treating one model as universally preferable.
 
-## Relationship to the stack
+## Relationship to the ensemble
 
 ```text
-doctrine   = principles and boundaries
-identity   = actor, role, authority, privacy, and delegation
-project    = operating context
-skills     = reusable procedures
-models     = evidence-backed model selection policy
-knowledge  = attached claims, sources, and evidence
-meta       = maintenance and revision policy
-agents     = composition of these concerns for a concrete software actor
+constitution      = composes the ensemble
+doctrine          = principles and boundaries
+identity          = actor, role, authority, privacy, incentives, and delegation
+project           = operating context
+skills            = reusable procedures and verification
+knowledge         = attached claims, sources, evidence, uncertainty, and gaps
+models            = evidence-backed capability and routing policy
+agents            = composition of these concerns for a software actor
+living-knowledge  = maintenance of changing attached corpora
+meta              = audit, upkeep, and revision policy
 ```
 
 ## Boundary
@@ -85,4 +93,4 @@ This public repository should not contain personal profiles, client data, privat
 
 ## Status
 
-Draft. Not yet wired into `npx architectonic add agents`.
+Draft package included in the Architectonic ensemble.
