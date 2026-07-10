@@ -1,6 +1,6 @@
 {
   "name": "architectonic-agents",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Architectonic package for composing reusable software-agent definitions from identity, doctrine, skills, model policy, knowledge attachments, evaluations, and upkeep rules.",
   "license": "Apache-2.0",
   "type": "module",

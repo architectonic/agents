@@ -9,29 +9,50 @@ status: draft
 
 # agents
 
-`agents` defines reusable structures for configuring software agents within an Architectonic system.
-
-Install it with:
-
 ```bash
 npx architectonic add agents
 ```
 
+`agents` defines reusable structures for configuring software agents within an Architectonic system.
+
 An agent is a composed software actor. A concrete configuration may include identity, scoped doctrine, selected skills, model policy, knowledge attachments, prompt surfaces, verification gates, permissions, and upkeep rules.
 
-## Core distinction
+## In the ensemble
 
 ```text
-archetype        reusable public pattern
-installed agent  initialized local configuration inside an organization, project, or workspace
-runtime agent    executing session with tools, logs, memory, and permissions
+constitution      composition contract for the ensemble
+doctrine          purpose, principles, ontology, epistemology, ethics, governance, incentives
+identity          actors, roles, authority, delegation, incentives, privacy
+project           operating-unit context, sources, decisions, risks, continuity
+skills            reusable procedures, verification, failure handling
+knowledge         claims, sources, evidence, uncertainty, known unknowns
+models            model metadata, evaluations, capability requirements, routing policy
+agents            software actors composed from identity, skills, models, knowledge, permissions
+living-knowledge  optional: governed maintenance of frequently changing corpora
+meta              audit, upkeep, drift review, revision policy
 ```
 
-This repository contains public-safe archetypes, schemas, templates, examples, and installation contracts. Private agents are instantiated in organization, project, or user workspaces.
+```text
+archetype        reusable public pattern (this repository)
+installed agent  initialized local configuration in a workspace
+runtime agent    executing session with tools, logs, memory, permissions
+```
+
+This repository contains public-safe archetypes, schemas, templates, and installation contracts. Private agents are instantiated in organization, project, or user workspaces.
+
+## Commands
+
+```bash
+npx architectonic add agents
+npx architectonic add agents --source npm
+npx architectonic init
+npx architectonic list
+npx architectonic doctor
+```
+
+CLI: https://github.com/architectonic/architectonic
 
 ## Minimal composition
-
-A minimal instance may contain:
 
 ```text
 agent.md
@@ -60,37 +81,12 @@ general doctrine
 
 More specific layers may narrow broader layers within delegated authority. Conflicts should be surfaced rather than silently resolved in favor of the most local instruction.
 
-## Skills
+## Skills, knowledge, models
 
-Installed agents may copy or vendor skills from `architectonic/skills`. Copied material should preserve source repository, path, ref or commit SHA, destination path, and local modification status.
-
-## Knowledge
-
-Agents attach to knowledge sources; they do not become the canonical owner of every corpus they can access. Each attachment should define scope, privacy, freshness, authority, and review expectations.
-
-## Models
-
-Model selection is an implementation policy rather than an identity trait. Agent definitions should describe capability requirements, cost and latency constraints, fallback behavior, and verification needs without treating one model as universally preferable.
-
-## Relationship to the ensemble
-
-```text
-constitution      = composes the ensemble
-doctrine          = principles and boundaries
-identity          = actor, role, authority, privacy, incentives, and delegation
-project           = operating context
-skills            = reusable procedures and verification
-knowledge         = attached claims, sources, evidence, uncertainty, and gaps
-models            = evidence-backed capability and routing policy
-agents            = composition of these concerns for a software actor
-living-knowledge  = maintenance of changing attached corpora
-meta              = audit, upkeep, and revision policy
-```
+- **Skills** — agents may copy or vendor skills from `architectonic/skills` with preserved provenance.
+- **Knowledge** — agents attach to knowledge sources; they do not become the canonical owner of every corpus they can access.
+- **Models** — model selection is implementation policy. Describe capability requirements, cost and latency constraints, and fallback behavior without treating one model as universally preferable.
 
 ## Boundary
 
 This public repository should not contain personal profiles, client data, private prompts, credentials, runtime logs, or project-specific operational state.
-
-## Status
-
-Draft package included in the Architectonic ensemble.
