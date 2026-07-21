@@ -1,5 +1,7 @@
 # Agents
 
+**Architectonic layer:** [main CLI and adaptive profiles](https://github.com/architectonic/architectonic)
+
 > **Status: experimental, pre-1.0.** This package defines public agent archetypes and installation contracts. It does not create runtime authority, prove autonomy, attach private knowledge, or authorize external effects.
 
 ```text
