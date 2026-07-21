@@ -1,36 +1,34 @@
 ---
 type: Contract
 title: Agent CLI Install Contract
-description: Contract for expanding archetype bundles and install specs into thick local installed agents.
+description: Contract for expanding a public archetype and local install specification into a reviewable installed agent bundle.
 tags: [agents, cli, install, archetype, specialization]
-okf_version: "0.1"
-status: draft
+protocol_version: "0.2.0"
+status: experimental
 ---
 
 # Agent CLI Install Contract
 
-This contract describes the future `npx architectonic add agents` expansion behavior.
-
-The current repo provides a reference script:
+The Architectonic CLI exposes installed-agent creation as an explicit operation separate from installing this package:
 
 ```bash
-python scripts/instantiate_agent.py \
-  --spec examples/install-specs/brazilian-tax-reviewer.json \
-  --output /tmp/brazilian-tax-reviewer
+npx architectonic@latest agent create \
+  --spec ./agents/examples/install-specs/brazilian-tax-reviewer.json \
+  --output ./organization/agents/brazilian-tax-reviewer
 ```
+
+The CLI delegates generation to this package's `scripts/instantiate_agent.py` reference implementation.
 
 ## Inputs
 
 ```text
-archetype bundle        archetypes/<id>/agent.bundle.json
-install spec            examples/install-specs/<id>.json or local org spec
-optional specialization specializations/<id>/...
-output path             local organization workspace path
+archetype bundle         archetypes/<id>/agent.bundle.json
+install specification    examples/install-specs/<id>.json or a local organization spec
+optional specialization  specialization files selected by the specification
+output path               controlled organization or project workspace
 ```
 
-## Output
-
-Every expansion must produce:
+## Required output
 
 ```text
 agent.md
@@ -48,26 +46,20 @@ manifest.json
 
 ## Expansion rules
 
-1. Read the archetype bundle.
-2. Apply install-spec local identity, authority, doctrine, knowledge attachments, and model overrides.
-3. Preserve skill provenance from the archetype bundle.
-4. Preserve inherited doctrine and make local doctrine subordinate.
-5. Emit a manifest with source archetype, specializations, generated files, and update rules.
-6. Refuse to overwrite an existing output unless `--force` is explicit.
+1. Read the archetype bundle and explicit install specification.
+2. Apply local identity, authority, doctrine, knowledge attachments, model constraints, and permitted overrides.
+3. Preserve skill provenance and inherited doctrine.
+4. Emit a manifest with source archetype, generated files, and review rules.
+5. Refuse to overwrite an existing output unless `--force` is explicit.
+6. Do not treat generation as runtime authorization.
 
-## Non-goals
+## Current boundary
 
-This does not yet:
-
-- copy skill bodies into the installed agent;
-- integrate with `architectonic` npm CLI;
-- resolve dist-only skill slugs;
-- implement runtime permissions;
-- attach real private knowledge bases.
+The generator creates a local, reviewable installed-agent bundle. Runtime credentials, actual tool permissions, private knowledge access, external execution, and autonomy changes remain separate actions governed by the host organization and runtime.
 
 ## Update rules
 
-- Do not overwrite local doctrine without review.
-- Do not overwrite locally modified skills without diffing provenance.
-- Do not attach private knowledge bases without explicit local configuration.
-- Do not increase autonomy without permission review.
+- never overwrite local doctrine without review;
+- never overwrite locally modified skills without comparing provenance;
+- never attach a private knowledge base without explicit local configuration;
+- never increase autonomy or permissions without authority review.
