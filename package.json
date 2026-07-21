@@ -1,7 +1,7 @@
 {
   "name": "architectonic-agents",
-  "version": "0.1.1",
-  "description": "Architectonic package for composing reusable software-agent definitions from identity, doctrine, skills, model policy, knowledge attachments, evaluations, and upkeep rules.",
+  "version": "0.2.0",
+  "description": "Agent composition layer for identity, doctrine, skills, models, knowledge, permissions, evaluations, and upkeep.",
   "license": "Apache-2.0",
   "type": "module",
   "repository": {
@@ -13,22 +13,24 @@
   },
   "files": [
     "README.md",
+    "CHANGELOG.md",
+    "architectonic.protocol.json",
     "archetypes",
     "docs",
     "schemas",
     "scripts",
-    "templates"
+    "templates",
+    "examples"
   ],
   "scripts": {
-    "validate": "python scripts/validate_agents_package.py"
+    "validate": "python scripts/validate_agents_package.py && node scripts/validate-package.mjs",
+    "test": "npm run validate"
   },
   "keywords": [
     "architectonic",
     "agents",
     "human-ai",
-    "skills",
-    "models",
-    "knowledge",
-    "okf"
+    "provenance",
+    "governance"
   ]
 }

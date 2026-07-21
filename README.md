@@ -1,75 +1,26 @@
----
-type: Entry Point
-title: agents
-description: Runtime-neutral package for composing software agents from identity, doctrine, skills, model policy, knowledge attachments, prompts, evaluations, permissions, and upkeep rules.
-tags: [agents, identity, doctrine, skills, models, knowledge, meta, okf]
-okf_version: "0.2"
-status: draft
----
+# Agents
 
-# agents
+> **Status: experimental, pre-1.0.** This package defines agent composition and installation contracts. It does not create runtime authority merely by being installed.
+
+An Architectonic agent is a composed software actor with explicit identity, scoped doctrine, selected skills, model policy, knowledge attachments, prompts, evaluations, permissions, and upkeep rules.
+
+## Three distinct objects
+
+```text
+public archetype  reusable pattern published by this package
+installed agent   local initialized bundle inside an organization or project
+runtime agent     executing session with tools, credentials, logs, and permissions
+```
+
+Installing the `agents` layer installs public archetypes, schemas, templates, validators, and the reference generator. Creating an installed agent is a separate explicit action:
 
 ```bash
-npx architectonic add agents
+npx architectonic@latest agent create \
+  --spec ./agents/examples/install-specs/brazilian-tax-reviewer.json \
+  --output ./organization/agents/brazilian-tax-reviewer
 ```
 
-`agents` defines reusable structures for configuring software agents within an Architectonic system.
-
-An agent is a composed software actor. A concrete configuration may include identity, scoped doctrine, selected skills, model policy, knowledge attachments, prompt surfaces, verification gates, permissions, and upkeep rules.
-
-## In the ensemble
-
-```text
-constitution      composition contract for the ensemble
-doctrine          purpose, principles, ontology, epistemology, ethics, governance, incentives
-identity          actors, roles, authority, delegation, incentives, privacy
-project           operating-unit context, sources, decisions, risks, continuity
-skills            reusable procedures, verification, failure handling
-knowledge         claims, sources, evidence, uncertainty, known unknowns
-models            model metadata, evaluations, capability requirements, routing policy
-agents            software actors composed from identity, skills, models, knowledge, permissions
-living-knowledge  optional: governed maintenance of frequently changing corpora
-meta              audit, upkeep, drift review, revision policy
-```
-
-```text
-archetype        reusable public pattern (this repository)
-installed agent  initialized local configuration in a workspace
-runtime agent    executing session with tools, logs, memory, permissions
-```
-
-This repository contains public-safe archetypes, schemas, templates, and installation contracts. Private agents are instantiated in organization, project, or user workspaces.
-
-## Commands
-
-```bash
-npx architectonic add agents
-npx architectonic add agents --source npm
-npx architectonic init
-npx architectonic list
-npx architectonic doctor
-```
-
-CLI: https://github.com/architectonic/architectonic
-
-## Minimal composition
-
-```text
-agent.md
-identity.md
-doctrine.md
-skills.json
-models.json
-knowledge-sets.json
-prompts/system.md
-prompts/task.md
-evals.md
-upkeep.md
-```
-
-Separate files should exist only when they preserve a meaningful boundary or are maintained independently.
-
-## Layering
+## Composition order
 
 ```text
 general doctrine
@@ -79,14 +30,13 @@ general doctrine
         -> task instructions
 ```
 
-More specific layers may narrow broader layers within delegated authority. Conflicts should be surfaced rather than silently resolved in favor of the most local instruction.
+More specific layers may narrow broader layers only within delegated authority. Conflicts are surfaced rather than silently resolved.
 
-## Skills, knowledge, models
+## Safety rules
 
-- **Skills** — agents may copy or vendor skills from `architectonic/skills` with preserved provenance.
-- **Knowledge** — agents attach to knowledge sources; they do not become the canonical owner of every corpus they can access.
-- **Models** — model selection is implementation policy. Describe capability requirements, cost and latency constraints, and fallback behavior without treating one model as universally preferable.
-
-## Boundary
-
-This public repository should not contain personal profiles, client data, private prompts, credentials, runtime logs, or project-specific operational state.
+- preserve skill provenance;
+- never overwrite local doctrine without review;
+- never attach private knowledge without explicit local configuration;
+- never increase autonomy or permissions without authority review;
+- high-risk archetypes remain at bounded autonomy;
+- installing a package is not granting runtime permission.
