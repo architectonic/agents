@@ -1,42 +1,25 @@
 # Agents
 
-> **Status: experimental, pre-1.0.** This package defines agent composition and installation contracts. It does not create runtime authority merely by being installed.
-
-An Architectonic agent is a composed software actor with explicit identity, scoped doctrine, selected skills, model policy, knowledge attachments, prompts, evaluations, permissions, and upkeep rules.
-
-## Three distinct objects
+> **Status: experimental, pre-1.0.** This package defines public agent archetypes and installation contracts. It does not create runtime authority, prove autonomy, attach private knowledge, or authorize external effects.
 
 ```text
-public archetype  reusable pattern published by this package
-installed agent   local initialized bundle inside an organization or project
-runtime agent     executing session with tools, credentials, logs, and permissions
+public archetype  reusable pattern in this package
+installed agent   local files specialized for one workspace
+runtime agent     executing process with tools, state, permissions, and evidence
 ```
 
-Installing the `agents` layer installs public archetypes, schemas, templates, validators, and the reference generator. Creating an installed agent is a separate explicit action:
+The package may be inspected or installed alone as an archetype library:
 
 ```bash
-npx architectonic@latest agent create \
-  --spec ./agents/examples/install-specs/brazilian-tax-reviewer.json \
-  --output ./organization/agents/brazilian-tax-reviewer
+npx architectonic@latest add agents --source npm
 ```
 
-## Composition order
+Use the `agent-team` profile when operational agents also need identity, reviewed skills, knowledge attachments, model policy, and upkeep:
 
-```text
-general doctrine
-  -> organization rules
-    -> project or client rules
-      -> agent-specific constraints
-        -> task instructions
+```bash
+npx architectonic@latest init my-team --preset agent-team --source npm
 ```
 
-More specific layers may narrow broader layers only within delegated authority. Conflicts are surfaced rather than silently resolved.
+An installed agent has no authority merely because its files exist. Local configuration must define the human owner, purpose, skills, knowledge, model policy, permissions, budgets, review gates, escalation, and stopping rights.
 
-## Safety rules
-
-- preserve skill provenance;
-- never overwrite local doctrine without review;
-- never attach private knowledge without explicit local configuration;
-- never increase autonomy or permissions without authority review;
-- high-risk archetypes remain at bounded autonomy;
-- installing a package is not granting runtime permission.
+Recurring agents should use bounded loop engineering rather than “run forever” prompts. See [`docs/LOOP_ENGINEERING.md`](./docs/LOOP_ENGINEERING.md).
