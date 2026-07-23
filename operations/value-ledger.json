@@ -1,5 +1,6 @@
 {
   "schema_version": "0.1",
+  "purpose": "Qualified outcome history only; not current work state, backlog, queue, or selection authority.",
   "events": [
     {
       "date": "2026-07-09",

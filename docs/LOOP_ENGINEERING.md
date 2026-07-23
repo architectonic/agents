@@ -8,7 +8,8 @@ Use a loop only when work must recur across runs, schedules, workers, or handoff
 bounded objective and value hypothesis
 trigger or schedule
 durable state outside model context
-work selection and claim rule
+one canonical Architectonic Rail ledger
+dependency-aware work selection and claim rule
 worker and verifier
 approved skills and tools
 cost, token, time, and spawn budgets
@@ -20,7 +21,9 @@ stop and retirement conditions
 
 ## Parallel work
 
-Parallel agents require isolation, ownership, and reconciliation. Use separate branches, worktrees, tickets, leases, or artifact claims where appropriate. Do not let several agents silently mutate the same canonical file.
+Parallel agents require isolation, ownership, and reconciliation. Use separate branches, worktrees, Rail claims, leases, or artifact claims where appropriate. Do not let several agents silently mutate the same canonical file.
+
+Backlog, queue, and now are queries over the Rail ledger. They are not additional authored files. Run logs exist only when attempt chronology changes future action.
 
 ## Knowledge boundary
 

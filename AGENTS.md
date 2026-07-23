@@ -10,6 +10,8 @@ This repository defines the Architectonic `agents` package.
 - Preserve provenance for all pinned or vendored skills.
 - Do not store private client files, secrets, confidential org doctrine, or private user profiles in this public repo.
 - High-stakes archetypes default to low autonomy.
+- When a project is rail-bound, read its named `ledger.json`, consume the assigned or dependency-clear ready item, attach evidence, and stop at review or approval boundaries.
+- Do not create agent-local boards, queues, now files, daily status files, or handoff ledgers beside the canonical work ledger.
 
 ## Validation
 

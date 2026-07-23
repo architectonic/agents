@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "project": "architectonic-agents",
+  "updated": "2026-07-23",
+  "items": [
+    {
+      "id": "agents-bootstrap-package-001",
+      "title": "Bootstrap the agents package contract and starter kit.",
+      "status": "done",
+      "priority": "P1",
+      "owner_role": "package-builder",
+      "acceptance": [
+        "README defines the thick installed-agent contract",
+        "schemas, templates, archetypes, and examples exist",
+        "distribution catalog exists",
+        "validation script exists"
+      ],
+      "depends_on": [],
+      "evidence": [
+        "schemas/agent.schema.json",
+        "templates/installed-agent/",
+        "archetypes/",
+        "examples/mybusiness-lawfirm/agents/brazilian-tax-reviewer/",
+        "dist/catalog.json"
+      ],
+      "completed_at": "2026-07-09T00:00:00-03:00"
+    },
+    {
+      "id": "agents-cli-install-contract-001",
+      "title": "Define the CLI expansion contract for installing Agents.",
+      "status": "done",
+      "priority": "P1",
+      "owner_role": "installer-designer",
+      "acceptance": [
+        "document install expansion",
+        "define vendored-skill update behavior",
+        "define architectonic.json manifest entries",
+        "add a reference generator for thick installed-agent output",
+        "validate install specs by generating required files"
+      ],
+      "depends_on": [
+        "agents-bootstrap-package-001"
+      ],
+      "evidence": [
+        "docs/CLI_INSTALL_CONTRACT.md",
+        "schemas/install-spec.schema.json",
+        "examples/install-specs/brazilian-tax-reviewer.json",
+        "scripts/instantiate_agent.py",
+        "scripts/validate_agents_package.py",
+        "dist/install-manifest.json"
+      ],
+      "completed_at": "2026-07-09T00:00:00-03:00"
+    },
+    {
+      "id": "agents-permissions-model-001",
+      "title": "Draft the future permission-layer interface.",
+      "status": "ready",
+      "priority": "P2",
+      "owner_role": "governance-designer",
+      "acceptance": [
+        "identify whether permissions belong in doctrine, constitution, identity, agents, or a new package",
+        "define a minimal permission vocabulary",
+        "avoid implementing runtime authorization"
+      ],
+      "depends_on": [
+        "agents-cli-install-contract-001"
+      ],
+      "evidence": [],
+      "stop_line": "Design only. No runtime authorization, credential, account, or external permission mutation."
+    },
+    {
+      "id": "agents-dist-skill-resolution-001",
+      "title": "Resolve distribution-only skills into generated vendored copies with provenance.",
+      "status": "ready",
+      "priority": "P3",
+      "owner_role": "installer-designer",
+      "acceptance": [
+        "define distribution slug to canonical or generated-copy resolution",
+        "preserve risk, review, and license metadata",
+        "avoid treating distribution output as authoring source"
+      ],
+      "depends_on": [
+        "agents-cli-install-contract-001"
+      ],
+      "evidence": [],
+      "stop_line": "No publication, unreviewed skill promotion, or loss of provenance."
+    }
+  ],
+  "extensions": {
+    "selection_rule": "Take the human-assigned item or select the highest-priority dependency-clear ready item allowed by operations/gates.md."
+  }
+}

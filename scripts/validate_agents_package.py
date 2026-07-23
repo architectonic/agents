@@ -36,6 +36,14 @@ REQUIRED_INSTALLED_FILES = [
     "upkeep.md",
     "manifest.json",
 ]
+FORBIDDEN_WORK_AUTHORITIES = [
+    "operations/board.json",
+    "operations/log.md",
+    "operations/daily/2026-07-09/status.json",
+    "operations/daily/2026-07-09/queues.json",
+]
+RAIL_STATUSES = {"inbox", "ready", "in_progress", "blocked", "done", "cancelled"}
+RAIL_PRIORITIES = {"P0", "P1", "P2", "P3"}
 
 
 def load_json(path: Path):
@@ -50,6 +58,60 @@ def main() -> int:
             load_json(path)
         except Exception as exc:
             errors.append(f"{path.relative_to(ROOT)} invalid JSON: {type(exc).__name__}: {exc}")
+
+    ledger_path = ROOT / "operations/ledger.json"
+    if not ledger_path.exists():
+        errors.append("missing canonical Rail ledger: operations/ledger.json")
+    else:
+        ledger = load_json(ledger_path)
+        if ledger.get("schema_version") != "1.0":
+            errors.append("operations/ledger.json schema_version must be 1.0")
+        if not ledger.get("project") or not ledger.get("updated"):
+            errors.append("operations/ledger.json must identify project and updated date")
+
+        items = ledger.get("items")
+        if not isinstance(items, list):
+            errors.append("operations/ledger.json items must be an array")
+            items = []
+
+        ids = [item.get("id") for item in items if isinstance(item, dict)]
+        known_ids = {item_id for item_id in ids if item_id}
+        if len(ids) != len(known_ids):
+            errors.append("operations/ledger.json item ids must be present and unique")
+
+        statuses = {
+            item.get("id"): item.get("status")
+            for item in items
+            if isinstance(item, dict) and item.get("id")
+        }
+        for item in items:
+            if not isinstance(item, dict):
+                errors.append("operations/ledger.json items must be objects")
+                continue
+            item_id = item.get("id", "<missing-id>")
+            for key in ("title", "owner_role", "acceptance", "depends_on", "evidence"):
+                if key not in item:
+                    errors.append(f"operations/ledger.json {item_id} missing {key}")
+            if item.get("status") not in RAIL_STATUSES:
+                errors.append(f"operations/ledger.json {item_id} has invalid status")
+            if item.get("priority") not in RAIL_PRIORITIES:
+                errors.append(f"operations/ledger.json {item_id} has invalid priority")
+            for dependency in item.get("depends_on", []):
+                if dependency not in known_ids:
+                    errors.append(f"operations/ledger.json {item_id} has unknown dependency {dependency}")
+                elif item.get("status") in {"ready", "in_progress", "done"} and statuses.get(dependency) != "done":
+                    errors.append(
+                        f"operations/ledger.json {item_id} is {item.get('status')} but dependency {dependency} is not done"
+                    )
+            if item.get("status") == "done":
+                if not item.get("evidence"):
+                    errors.append(f"operations/ledger.json {item_id} is done without evidence")
+                if not item.get("completed_at"):
+                    errors.append(f"operations/ledger.json {item_id} is done without completed_at")
+
+    for relative_path in FORBIDDEN_WORK_AUTHORITIES:
+        if (ROOT / relative_path).exists():
+            errors.append(f"legacy parallel work authority must not exist: {relative_path}")
 
     archetype_dir = ROOT / "archetypes"
     bundles = sorted(archetype_dir.glob("*/agent.bundle.json")) if archetype_dir.exists() else []

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1
+
+- Bind operational agents to one Architectonic Rail ledger.
+- Remove the parallel board, daily status, queue, and generic operations-log authorities.
+- Preserve the value ledger only as qualified outcome history, not current work state.
+- Correct the npm allowlist and verify that canonical contracts and instructions ship.
+
 ## 0.3.0
 
 - Add adaptive standalone and compound-profile guidance.
